@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Task - Task Manager{% endblock %}
+
+{% block content %}
+<h1>Task Manager</h1>
+<h2>Edit Task</h2>
+<form method="POST">
+  <label>Title:</label>
+  <input type="text" name="title" value="{{ task.title }}" required /><br/>
+  <label>Description:</label>
+  <textarea name="description">{{ task.description }}</textarea><br/>
+  <input type="submit" value="Update Task" />
+</form>
+<a href="{{ url_for('tasks') }}">Back to Tasks</a>
+{% endblock %}

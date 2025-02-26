@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Task Manager</h1>
+<a href="{{ url_for('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+<form id="logout-form" method="POST" action="{{ url_for('logout') }}" style="display:none;"></form>
+
+<h2>Add Task</h2>
+<form method="POST" action="{{ url_for('add_task') }}">
+  <label>Title:</label>
+  <input type="text" name="title" required /><br/>
+  <label>Description:</label>
+  <textarea name="description"></textarea><br/>
+  <input type="submit" value="Add Task" />
+</form>
+
+<h2>Your Tasks</h2>
+<ul>
+  {% for task in tasks %}
+  <li class="task-item">
+
+    <form method="POST" action="{{ url_for('edit_task', task_id=task.id) }}" style="display:inline;">
+
+      <input type="hidden" name="title" value="{{ task.title }}">
+      <input type="hidden" name="description" value="{{ task.description }}">
+
+      <input type="checkbox" name="completed" 
+             {% if task.completed %}checked{% endif %}
+             onchange="this.form.submit()">
+      
+      <span class="task-title">{{ task.title }}</span>:
+      <span class="task-desc">{{ task.description }}</span>
+    </form>
+
+    <div class="task-actions" style="display:inline; margin-left:10px;">
+      <a href="{{ url_for('edit_task', task_id=task.id) }}">Edit</a>
+      <form method="POST" action="{{ url_for('delete_task', task_id=task.id) }}" style="display:inline;">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
