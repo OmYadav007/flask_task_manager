@@ -4,15 +4,25 @@ A simple **Task Manager** web application built using **Flask**, designed to hel
 
 ## 🌟 Features
 - ✅ Add, update, and delete tasks
-- ✅ Secure JWT-based authentication for login
+- ✅ Secure **JWT-based authentication** for login
 - ✅ RESTful API for task management
 - ✅ Dockerized for easy deployment
+- ✅ Easily deployable on **AWS EC2**
 
-Instructions for Running the Application
-# install requirements inside a python environment
+---
+
+## 📌 Instructions for Running the Application
+
+### **1️⃣ Install Dependencies Inside a Python Virtual Environment**
+```bash
+# Create a virtual environment (Optional but recommended)
+python -m venv venv
+source venv/bin/activate  # On macOS/Linux
+venv\Scripts\activate     # On Windows
+
+# Install required dependencies
 pip install -r requirements.txt
-# to run the application 
-python app.py
+
 
 #🐳 Running with Docker
 
