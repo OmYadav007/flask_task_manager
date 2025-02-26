@@ -22,7 +22,8 @@ venv\Scripts\activate     # On Windows
 
 # Install required dependencies
 pip install -r requirements.txt
-
+# Run the app locally
+python app.py
 
 #🐳 Running with Docker
 
