@@ -14,12 +14,12 @@ pip install -r requirements.txt
 # to run the application 
 python app.py
 
-🐳 Running with Docker
+#🐳 Running with Docker
 
 docker build -t task_manager_web:latest 
 docker run -p 8002:8002 task_manager_web:latest
 
-2️⃣ Pull and Run from Docker Hub
+#2️⃣ Pull and Run from Docker Hub
 docker pull omyadav007/task_manager_app:latest
 docker run -d -p 8002:8002 --name task_manager omyadav007/task_manager_app:latest
 
